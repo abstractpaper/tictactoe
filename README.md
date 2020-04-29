@@ -1,11 +1,13 @@
 TicTacToe game implementation. Nothing serious here.
 
 To install:
-```
+
+```bash
 pip install xando
 ```
 
 10000 random games:
+
 ```bash
 (.venv) aziz@merlin:~/code/tictactoe$ python play_random.py 
 X Won:  4343
