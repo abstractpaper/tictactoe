@@ -1,5 +1,5 @@
 import random
-from engine.core import Board, Player
+from tictactoe.engine import Board, Player
 
 def play_random():
     board = Board()
