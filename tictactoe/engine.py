@@ -53,7 +53,7 @@ class Player:
         if self.board.winning_row(self.side):
             self.board.player_won = self
             if self.verbose:
-                print("{} won!".format(self))
+                print(f"{self} won!")
 
     def __str__(self):
         return f"Player {self.side}"
