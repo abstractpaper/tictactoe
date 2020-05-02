@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="xando",
-    version="0.0.1",
+    version="0.0.2",
     author="Aziz Alfoudari",
     author_email="aziz.alfoudari@gmail.com",
     description="TicTacToe game engine",
