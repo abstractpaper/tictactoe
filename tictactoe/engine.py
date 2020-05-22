@@ -25,19 +25,22 @@ class Board:
 
         return horizontal or vertical or diagonal or opp_diag
 
-    def print(self):
+    def readable(self):
         matrix = np.asarray(self.board)
-        matrix[matrix == "0"] = " "
+        v = np.vectorize(lambda x: dict(zip([0, 1, 2], [" ", "X", "O"]))[x])
+        matrix = v(matrix)
+        result = ""
         for row in matrix:
-            row_string = f" {row[0]} | {row[1]} | {row[2]} "
-            print(row_string)
-            print("-" * len(row_string))
+            row_string = f" {row[0]} | {row[1]} | {row[2]} \n"
+            result = result + row_string
+            result = result + ("-" * len(row_string)) + "\n"
+        return result
 
 
 class Player:
     def __init__(self, board=None, side=None, verbose=False):
         self.board = board
-        self.side = side # X or O
+        self.side = side # X=1 or O=2
         self.verbose = verbose
 
     def mark(self, x, y):
@@ -48,7 +51,7 @@ class Player:
         self.board.empty_cells.remove((x,y))
 
         if self.board.verbose:
-            self.board.print()
+            print(self.board.readable())
         
         if self.board.winning_row(self.side):
             self.board.player_won = self
